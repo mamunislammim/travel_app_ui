@@ -11,7 +11,7 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   Future<void> _goHomeScreen() async {
-    await Future.delayed(const Duration(seconds: 5)).then((value) =>
+    await Future.delayed(const Duration(seconds: 10)).then((value) =>
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const RoutingPage())));
   }

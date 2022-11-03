@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app_ui/Equipment/color_class.dart';
 import 'package:iconly/iconly.dart';
 import '../Models/data.dart';
+import 'destination_details.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: const BoxDecoration(
                   color: Color(0xff040720),
                 ),
-                height: MediaQuery.of(context).size.height / 2.7,
+                height: MediaQuery.of(context).size.height / 2.6,
                 child: Column(
                   children: [
                     Expanded(
@@ -43,11 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "Hei..Jhon Willy..",
                                   style: TextStyle(color: Colors.grey),
                                 ),
-                                SizedBox(height: 5,),
+                                SizedBox(
+                                  height: 5,
+                                ),
                                 Text(
                                   "Discover your Destination for Holiday",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 24),
+                                      color: Colors.white, fontSize: 22),
                                 ),
                               ],
                             ),
@@ -189,63 +192,75 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemBuilder: (_, index) {
                         return Padding(
                           padding: const EdgeInsets.only(right: 15),
-                          child: Container(
-                            width: 140,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 120,
-                                  width: 140,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image:
-                                          NetworkImage(data[index].uImageName),
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DestinationDetails(
+                                          upComingData: data[index])),
+                                );
+                              });
+                            },
+                            child: Container(
+                              width: 140,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 120,
+                                    width: 140,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: NetworkImage(
+                                            data[index].uImageName),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 5, right: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        data[index].uPlaceName,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            data[index].uCountryName,
-                                            style: const TextStyle(
-                                                color: Colors.grey),
-                                          ),
-                                          Text(
-                                            data[index].uPrice,
-                                            style: const TextStyle(
-                                                color: buttonColor,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                  const SizedBox(
+                                    height: 5,
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data[index].uPlaceName,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              data[index].uCountryName,
+                                              style: const TextStyle(
+                                                  color: Colors.grey),
+                                            ),
+                                            Text(
+                                              data[index].uPrice,
+                                              style: const TextStyle(
+                                                  color: buttonColor,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );

@@ -21,7 +21,7 @@ List<DataClass> data = [
       uImageName:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4gGdNNAxLnKcPpaO5n_IfAjl7fJZMNYHKvw&usqp=CAU",
       uPlaceName: "Fushimi Inari",
-      uCountryName: "Japan",
+      uCountryName: "Srilanka",
       uPrice: "\$280"),
   DataClass(
       uImageName:
