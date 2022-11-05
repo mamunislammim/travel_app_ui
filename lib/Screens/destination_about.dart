@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:travel_app_ui/Equipment/color_class.dart';
 import 'package:travel_app_ui/Models/data.dart';
-import '../Models/data.dart';
-
+import 'package:travel_app_ui/Models/destination_class.dart';
 
 class DestinationDetails extends StatefulWidget {
-     const DestinationDetails({super.key, required this.upComingData});
+  const DestinationDetails({super.key, required this.upComingData});
   final DataClass upComingData;
 
   @override
@@ -14,6 +13,8 @@ class DestinationDetails extends StatefulWidget {
 }
 
 class _DestinationDetailsState extends State<DestinationDetails> {
+
+  int _selectButton = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,8 @@ class _DestinationDetailsState extends State<DestinationDetails> {
     return Scaffold(
       persistentFooterButtons: [
         Container(
-          padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
+          padding:
+              const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
           color: bgColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -31,36 +33,37 @@ class _DestinationDetailsState extends State<DestinationDetails> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Your Trip Count",
                     style: TextStyle(color: Colors.black),
                   ),
                   Text(
                     widget.upComingData.uPrice,
-                    style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 17),
                   )
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(left: 20,right: 20,top: 12,bottom: 12),
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20, top: 12, bottom: 12),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13),
-                    color: buttonColor
-                ),
-                child: Text("Book Now"),
+                    color: buttonColor),
+                child: const Text("Book Now"),
               )
             ],
           ),
         ),
       ],
       resizeToAvoidBottomInset: true,
-       backgroundColor: bgColor,
+      backgroundColor: bgColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: InkWell(
-          onTap: (){
+          onTap: () {
             setState(() {
               Navigator.pop(context);
             });
@@ -69,8 +72,9 @@ class _DestinationDetailsState extends State<DestinationDetails> {
             padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
             child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.circular(15)),
-                child: Icon(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: const Icon(
                   IconlyLight.arrow_left_circle,
                   color: buttonColor,
                 )),
@@ -96,7 +100,7 @@ class _DestinationDetailsState extends State<DestinationDetails> {
               Padding(
                 padding: const EdgeInsets.all(21.0),
                 child: Container(
-                  padding: EdgeInsets.only(top: 12, bottom: 12),
+                  padding: const EdgeInsets.only(top: 12, bottom: 12),
                   height: height / 8,
                   width: width,
                   decoration: BoxDecoration(
@@ -108,7 +112,7 @@ class _DestinationDetailsState extends State<DestinationDetails> {
                     children: [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             "Duration",
                             style: TextStyle(color: Colors.grey),
@@ -122,7 +126,7 @@ class _DestinationDetailsState extends State<DestinationDetails> {
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             "Participant",
                             style: TextStyle(color: Colors.grey),
@@ -136,7 +140,7 @@ class _DestinationDetailsState extends State<DestinationDetails> {
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             "Landing",
                             style: TextStyle(color: Colors.grey),
@@ -162,10 +166,11 @@ class _DestinationDetailsState extends State<DestinationDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                 widget.upComingData.uPlaceName,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  widget.upComingData.uPlaceName,
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Row(
@@ -173,18 +178,18 @@ class _DestinationDetailsState extends State<DestinationDetails> {
                   children: [
                     Row(
                       children: [
-                        Icon(IconlyLight.location),
-                        SizedBox(
+                        const Icon(IconlyLight.location),
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
                           widget.upComingData.uCountryName,
-                          style: TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: Colors.grey),
                         )
                       ],
                     ),
                     Row(
-                      children: [
+                      children: const [
                         Icon(
                           IconlyBold.star,
                           color: buttonColor,
@@ -200,59 +205,76 @@ class _DestinationDetailsState extends State<DestinationDetails> {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
+                // About Denefit Highlight
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: EdgeInsets.only(
-                          top: 7, bottom: 7, left: 10, right: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: buttonColor,
+                    InkWell(
+                      onTap: (){
+                        setState(() {
+                          _selectButton = 1;
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 7, bottom: 7, left: 10, right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: _selectButton == 1 ? buttonColor : Colors.white,
+                        ),
+                        child:  Text("About",style: TextStyle(color: _selectButton == 1 ? Colors.white : Colors.grey),),
                       ),
-                      child: Text("About"),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(
-                          top: 7, bottom: 7, left: 10, right: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+
+                    // Benefit
+                    InkWell(
+                      onTap: (){
+                        setState(() {
+                          _selectButton = 2;
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 7, bottom: 7, left: 10, right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: _selectButton == 2 ? buttonColor : Colors.white,
+                        ),
+                        child:   Text("Benefit",style: TextStyle(color: _selectButton == 2 ? Colors.white : Colors.grey)),
                       ),
-                      child: Text("Benefit"),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(
-                          top: 7, bottom: 7, left: 10, right: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+
+                    // Highlights
+                    InkWell(
+                      onTap: (){
+                       setState(() {
+                         _selectButton = 3;
+                       });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 7, bottom: 7, left: 10, right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: _selectButton == 3 ? buttonColor : Colors.white,
+                        ),
+                        child:   Text("Highlights",style: TextStyle(color: _selectButton == 3 ? Colors.white : Colors.grey)),
                       ),
-                      child: Text("Highlights"),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
-                Text(
-                  "Fujinomiya (富士宮市 Fujinomiya-shi) adalah kota"
-                  " yang terletak di Prefektur Shizuoka,Fujinomiya (富士宮市 Fujinomiya-shi) adalah kota"
-                      " yang terletak di Prefektur Shizuoka, Jepang. "
-                  "Pada 1 Februari 2020, kota ini memiliki perkiraan "
-                  "populasi 128,342 dan kepadatan penduduk 330 orang"
-                  " per km². Total wilayah kota adalah 389.08 km²",
-                  style: TextStyle(color: Colors.grey),
-                ),
+                DestinationClass(selectedItem: _selectButton, dataItem: widget.upComingData)
               ],
             ),
           ),
         ],
       ),
-
     );
   }
 }

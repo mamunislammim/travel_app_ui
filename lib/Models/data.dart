@@ -43,7 +43,7 @@ final List<String> placeName = [
   "Italy",
   "Pakistan",
   "India",
-  "Vhutan"
+  "Vutan"
 ];
 final List<String> placeImage = [
   "https://cdn.cnn.com/cnnnext/dam/assets/170606121226-japan---travel-destination---shutterstock-230107657.jpg",

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-
-import 'Screens/destination_details.dart';
+import 'package:travel_app_ui/Screens/home_screen.dart';
+import 'Screens/check_out.dart';
 import 'Screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: WelcomeScreen(),
     );
