@@ -33,7 +33,7 @@ class _CheckOutState extends State<CheckOut> {
           onTap: (){
             setState(() {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context)=> PaymentSuccess()
+                  MaterialPageRoute(builder: (context)=> const PaymentSuccess()
                   ),);
             });
           },
@@ -166,7 +166,7 @@ class _CheckOutState extends State<CheckOut> {
                                   _ticketCount--;
                                 });
                               },
-                              child: Icon(IconlyBroken.more_square)),
+                              child: const Icon(IconlyBroken.more_square)),
                         ],
                       ),
                     ),

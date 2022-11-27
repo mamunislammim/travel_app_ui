@@ -18,137 +18,129 @@ class _DestinationClassState extends State<DestinationClass> {
   Widget build(BuildContext context) {
     if (widget.selectedItem == 1) {
       return const Text(
-        "Fujinomiya (富士宮市 Fujinomiya-shi) adalah kota"
-        " yang terletak di Prefektur Shizuoka,Fujinomiya (富士宮市 Fujinomiya-shi) adalah kota"
-        " yang terletak di Prefektur Shizuoka, Jepang. "
-        "Pada 1 Februari 2020, kota ini memiliki perkiraan "
-        "populasi 128,342 dan kepadatan penduduk 330 orang"
-        " per km². Total wilayah kota adalah 389.08 km²",
+         """Fujiyama is closely related to Mount 
+Fuji,[3] and was located in the crossroad 
+of Miya and Yamaguchi mountain pilgrimage 
+trails. During the Nakamura period, the hunting
+event Fuji no Margarida arranged by shogun 
+Minamoto no Tomonori was held in the ancient 
+region of Fuji-no, where the Revenge of the Saga
+Brothers incident also took place. 
+         """,
         style: TextStyle(color: Colors.grey),
       );
     } else if (widget.selectedItem == 2) {
-      return SizedBox(
-        height: 150,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          shrinkWrap: true,
-          // physics: NeverScrollableScrollPhysics(),
-          children: [
-            const ListTile(
+      return Column(
+        children: [
+          const ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 20,
+              child: Icon(IconlyLight.home),
+            ),
+            title: Text(
+              "Hotel",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            ),
+            subtitle: Text("Charme Spagna Boutique Hotel"),
+          ),
+          InkWell(
+            onTap: () {
+              setState(
+                () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          CheckOut(upComingData: widget.dataItem),
+                    ),
+                  );
+                },
+              );
+            },
+            child: const ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 20,
-                child: Icon(IconlyLight.home),
+                child: Icon(IconlyLight.ticket),
               ),
               title: Text(
-                "Hotel",
+                "Ticket",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
               ),
-              subtitle: Text("Charme Spagna Boutique Hotel"),
+              subtitle: Text("1 ticket for one trip home and away"),
             ),
-            InkWell(
-              onTap: () {
-                setState(
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            CheckOut(upComingData: widget.dataItem),
-                      ),
-                    );
-                  },
-                );
-              },
-              child: const ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 20,
-                  child: Icon(IconlyLight.ticket),
-                ),
-                title: Text(
-                  "Ticket",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                ),
-                subtitle: Text("1 ticket for one trip home and away"),
+          ),
+          const ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 20,
+              child: Icon(
+                IconlyLight.star,
+                size: 22,
               ),
             ),
-            const ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 20,
-                child: Icon(
-                  IconlyLight.star,
-                  size: 22,
-                ),
-              ),
-              title: Text(
-                "The Best Food",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-              subtitle: Text("Daily meals for each vacation"),
-            )
-          ],
-        ),
+            title: Text(
+              "The Best Food",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            ),
+            subtitle: Text("Daily meals for each vacation"),
+          ),
+
+        ],
       );
     } else {
-      return SizedBox(
-        height: 150,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          shrinkWrap: true,
-          // physics: NeverScrollableScrollPhysics(),
-          children: [
-            ListTile(
-              leading: Container(
-                height: 94,
-                width: 94,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.fill, image: NetworkImage(placeImage[0])),
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              title: const Text(
-                "Shiraito Falls",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-              subtitle: const Text("3 km"),
-              trailing: const Icon(IconlyLight.arrow_right_2),
+      return Column(
+        children: [
+          ListTile(
+            leading: Container(
+              height: 94,
+              width: 94,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.fill, image: NetworkImage(placeImage[0])),
+                  borderRadius: BorderRadius.circular(10)),
             ),
-            ListTile(
-              leading: Container(
-                height: 94,
-                width: 94,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.fill, image: NetworkImage(placeImage[1])),
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              title: const Text(
-                "Lake Tanuki",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-              subtitle: const Text("3 km"),
-              trailing: const Icon(IconlyLight.arrow_right_2),
+            title: const Text(
+              "Shiraito Falls",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
-            ListTile(
-              leading: Container(
-                height: 94,
-                width: 94,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.fill, image: NetworkImage(placeImage[2])),
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              title: const Text(
-                "Jimba Waterfalls",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-              subtitle: const Text("4 km"),
-              trailing: const Icon(IconlyLight.arrow_right_2),
+            subtitle: const Text("3 km"),
+            trailing: const Icon(IconlyLight.arrow_right_2),
+          ),
+          ListTile(
+            leading: Container(
+              height: 94,
+              width: 94,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.fill, image: NetworkImage(placeImage[1])),
+                  borderRadius: BorderRadius.circular(10)),
             ),
-          ],
-        ),
+            title: const Text(
+              "Lake Tanuki",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+            subtitle: const Text("3 km"),
+            trailing: const Icon(IconlyLight.arrow_right_2),
+          ),
+          ListTile(
+            leading: Container(
+              height: 94,
+              width: 94,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.fill, image: NetworkImage(placeImage[2])),
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+            title: const Text(
+              "Jimba Waterfalls",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+            subtitle: const Text("4 km"),
+            trailing: const Icon(IconlyLight.arrow_right_2),
+          ),
+        ],
       );
     }
   }
